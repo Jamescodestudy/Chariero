@@ -1,72 +1,39 @@
 const CHART = document.getElementById("lineChart");
 console.log(CHART);
 
-let lineChart = new Chart(CHART, {
-     type: 'line',
-     data:
-     {
-          labels: ["Matematyka", "Polski", "Angielski", "Fizyka", "Informatyka", "Chemia", "Biologia"],
-          datasets:
-          [
-               {
-                    label: "Wyniki Maturalne",
-                    fill: false,
-                    lineTension: 0.3,
-                    backgroundColor: "rgba(75,192,192,0.4)",
-                    borderColor: "rgba(75,192,192,1)",
-                    borderCapStyle: 'butt',
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: 'miter',
-                    pointBorderColor: "red",
-                    pointBackgroundColor: "#fff",
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                    pointHoverBorderColor: "rgba(220,220,220,1)",
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                    data: [50,40,30,50,78,43.5,23.8],
-                    spanGaps: false,
-               },
-               {
-                    label: "II LO",
-                    fill: true,
-                    lineTension: 0.3,
-                    backgroundColor: "rgba(75,192,192,0.4)",
-                    borderColor: "rgba(75,240,192,1)",
-                    borderCapStyle: 'butt',
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: 'miter',
-                    pointBorderColor: "red",
-                    pointBackgroundColor: "#fff",
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "rgba(75,240,192,1)",
-                    pointHoverBorderColor: "rgba(220,220,220,1)",
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                    data: [80,60,50,80,45.7,20,32.1],
-                    spanGaps: false,
-               }
-          ]
-     },
-     options:
-     {
-          scales:
+Chart.defaults.scale.ticks.beginAtZero = true;
+
+var dataFirst = {
+     labels: ["Polski", "Matematyka", "Angielski", "Fizyka", "Informatyka", "Biologia", "Chemia", "Geografia", "Historia"],
+     datasets: [
           {
-               yAxes:
-               [
-                    {
-                         ticks:
-                         {
-                              beginAtZero: true
-                         }
-                    }
-               ]
+               label: "Średnia maturalna",
+               fill: true,
+               lineTension: 0.3,
+               backgroundColor: "rgba(75,192,192,0.4)",
+               borderColor: "rgba(75,192,192,1)",
+               borderCapStyle: 'butt',
+               borderDash: [],
+               borderDashOffset: 0.0,
+               borderJoinStyle: 'miter',
+               pointBorderColor: "rgba(75,192,192,1)",
+               pointBackgroundColor: "#fff",
+               pointBorderWidth: 1,
+               pointHoverRadius: 5,
+               pointHoverBackgroundColor: "rgba(75,192,192,1)",
+               pointHoverBorderColor: "rgba(220,220,220,1)",
+               pointHoverBorderWidth: 2,
+               pointRadius: 1,
+               pointHitRadius: 10,
+               //backgroundColor: ["#EF626C","#679436","#064789","#FFBA08","#DB162F","#3F88C5","#7E1946","#FFC9B5","#9EE493"],
+               data: [30,90,60,20,80,50,35,60,31],
+               spanGaps: false,
           }
-     }
-});
+     ]
+};
+
+var myChart = new Chart(CHART,
+     {
+          type: "line",
+          data: dataFirst
+     });
